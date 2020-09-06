@@ -1,0 +1,149 @@
+@keyframes nav-fade-in {
+    from {
+        opacity: 0;
+        margin-top: -96px;
+    }
+    to {
+        opacity: 1;
+        margin-top: 0;
+    }
+}
+
+#main_nav {
+    width: 100%;
+    background-color: black;
+    padding: 16px 0;
+    box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.3);
+    position: fixed;
+    transition: all 200ms;
+    z-index: 10;
+}
+
+html[animate] #main_nav {
+    animation-name: nav-fade-in;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+}
+
+#main_nav .inner {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0 auto;
+}
+
+html[page-size="1"] #main_nav .inner {
+    max-width: 1200px;
+}
+
+html[page-size="2"] #main_nav .inner {
+    max-width: 800px;
+}
+
+html[header][scroll-position="0"]:not([small-nav]) #main_nav .inner {
+    max-width: 100%;
+}
+
+html[scroll-position="0"][header]:not([dark-nav]) #main_nav {
+    background: linear-gradient(180deg, rgba(0,0,0,0.5), rgba(0,0,0,0));
+    box-shadow: none;
+    padding: 0;
+}
+
+html[shallow-nav] #main_nav {
+    padding: 0;
+}
+
+#main_nav * {
+    color: #eeeeee;
+    line-height: 64px;
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+}
+
+#main_nav .inner > * {
+    padding: 0 32px;
+}
+
+#main_nav ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    margin-right: -16px;
+}
+
+#main_nav a {
+    display: block;
+    padding: 0 16px;
+}
+
+#main_nav a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 500px) {
+    
+    #main_nav .right {
+        display: none;
+        order: 1;
+        width: 100%;
+    }
+
+    #main_nav .right ul {
+        display: block;
+        margin-left: -16px;
+    }
+
+    #main_nav[opened] .right {
+        display: block;
+    }
+
+}
+
+@media (min-width: 500px) {
+
+    #main_nav .button {
+        display: none;
+    }
+
+}
+
+#main_nav .button button {
+    border: none;
+    background: transparent;
+    display: flex;
+    cursor: pointer;
+    margin-right: -20px;
+}
+
+#main_nav .button button svg {
+    padding: 20px;
+}
+
+#main_nav .button .line {
+    fill: white;
+}
+
+#main_nav .button .line {
+	opacity: 1;
+	transform: rotate(0) translateY(0) translateX(0);
+	transition: transform 0.3s ease-out, opacity 0.2s ease-out;
+    transform-origin: 50% 50%;
+}
+
+#main_nav[opened] .button .line_1, #main_nav[opened] .button .line_4 {
+	opacity: 0;
+}
+
+#main_nav[opened] .button .line_2 {
+	transform: rotate(45deg) translateY(0) translateX(0);
+}
+
+#main_nav[opened] .button .line_3 {
+	transform: rotate(-45deg) translateY(0) translateX(0);
+}
