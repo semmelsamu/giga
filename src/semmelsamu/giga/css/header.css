@@ -74,11 +74,15 @@ html[animate] #main_header .main {
 }
 
 @keyframes scroll-button-fade-in {
-    from {
+    0% {
         opacity: 0;
         bottom: 0;
     }
-    to {
+    60% {
+        opacity: 0;
+        bottom: 0;
+    }
+    100% {
         opacity: 1;
         bottom: 32px;
     }
@@ -94,14 +98,14 @@ html[animate] #main_header .main {
     bottom: 32px;
     left: 50%;
     right: 50%;
+    opacity: 1;
 }
 
 html[animate] #main_header .scroll_button {
     opacity: 0;
     animation-name: scroll-button-fade-in;
-    animation-duration: 1s;
+    animation-duration: 3s;
     animation-iteration-count: 1;
-    animation-delay: 2s;
     animation-fill-mode: forwards;
 }
 

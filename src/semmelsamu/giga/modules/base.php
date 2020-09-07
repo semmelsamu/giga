@@ -33,7 +33,7 @@
                 if($content["header"]) include("header.php");
 
                 if($content["nav"] && !$content["header"]) {
-                    ?><div style="width: 100%; height: 96px; display: block;"></div><?php
+                    ?><div id="nav_placeholder"></div><?php
                 }
             
                 if($content["content"] || $content["aside"]): ?>

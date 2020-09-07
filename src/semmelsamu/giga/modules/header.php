@@ -1,5 +1,4 @@
-<div style="background-color: #000000;"><header id="main_header" <?php 
-    if(isset($content["header__background"])): ?>style="background-image: <?= $content["header__background"] ?>;"<?php endif; ?>>
+<div style="background-color: #000000;"><header id="main_header" style="background-image: <?= $content["header__background"] ?>;">
 
     <div class="inner">
     
