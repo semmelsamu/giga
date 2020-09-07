@@ -23,6 +23,8 @@ $content = [
 include("giga/index.php");
 ```
 
+With this theme, it is also very simple to work with templates. Learn more [here](#working-with-templates)
+
 ## The content variable
 
 In this variable, you specify the settings and config for the theme. You have the following options:
@@ -166,7 +168,7 @@ The following example shows a possible implementation of the theme:
 ?>
 ```
 
-### Ways to work with templates
+### Working with templates
 
 If you e.g. want to always have the same navigation and footer bar in every page, one possible solution would be to work with a default file which you always include, and then to overwrite the content in the respective page:
 
