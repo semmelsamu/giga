@@ -194,7 +194,7 @@ site.php:
 <?php
 
     // including the default content:
-    include("default_content.php")
+    include("default_content.php");
 
     ob_start(); 
     
