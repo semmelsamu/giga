@@ -171,7 +171,7 @@ The following example shows a possible implementation of the theme:
 If you e.g. want to always have the same navigation and footer bar in every page, one possible solution would be to work with a default file which you always include, and then to overwrite the content in the respective page:
 
 default_content.php:
-```html
+```php
 <?php
 
     $content["path"] = "giga/"; 
@@ -188,7 +188,7 @@ default_content.php:
 ```
 
 site.php:
-```html
+```php
 <?php
 
     // including the default content:
