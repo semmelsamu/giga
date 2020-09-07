@@ -139,7 +139,7 @@ In this variable, you specify the settings and config for the theme. You have th
 
 The following example shows a possible implementation of the theme:
 
-```html
+```php
 <?php
 
     // Using output buffering to get the HTML code:
