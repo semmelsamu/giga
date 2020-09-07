@@ -1,47 +1,63 @@
-<?php
+<!DOCTYPE html>
 
-// DEFAULT SETTINGS TO OVERWRITE - DO NOT ALTER
-// Alter them in the config instead.
-$default_content = [
-    "path" => "./", // Path to where this file is. Needed for correctly linking the css and js files.
-    "lang" => null, // HTML lang tag.
-    "head" => null, // Additional content which belongs in the head can be added here.
+<html <?php
+    if(isset($content["lang"])) echo 'lang="'.$content["lang"].'" ';
+    if(isset($content["page_size"])) echo 'page-size="'.$content["page_size"].'" ';
+    if(isset($content["animate"]) && $content["animate"]) echo "animate ";
+    if(isset($content["nav"]) && $content["nav"]) echo "nav ";
+    if(isset($content["nav__shallow"]) &&$content["nav__shallow"]) echo "shallow-nav ";
+    if(isset($content["nav__small"]) && $content["nav__small"]) echo "small-nav ";
+    if(isset($content["nav__dark"]) && $content["nav__dark"]) echo "dark-nav ";
+    if(isset($content["header"]) && $content["header"]) {
+        echo "header ";
+        echo 'header-size="'.$content["header__size"].'" ';
+    };
+    if(isset($content["content"]) && $content["content"]) echo "content ";
+    if(isset($content["aside"]) && $content["aside"]) echo "aside ";
+    if(isset($content["aside__break"]) && $content["aside__break"]) echo "break-aside ";
+    if(isset($content["footer"]) && $content["footer"]) echo "footer ";
+?>>
 
-    "title" => null,
-    "main_title" => null,
+    <head>
+        <?php include("modules/head.php"); ?>
+    </head>
 
-    "page_size" => 0, // 0: Whole screen, 1: Part of the screen but still with aside content, 2: Part of the screen without aside content.
-    "animate" => false,
+    <body>
 
-    "nav" => false,
-    "nav__left" => null,
-    "nav__right" => null,
-    "nav__shallow" => false,
-    "nav__small" => false,
-    "nav__dark" => false,
+        <div id="main_wrapper">
 
-    "header" => false,
-    "header__size" => 0, // 0: Whole screen, 1: Half the screen, 2: Only as much as the content needs
-    "header__background" => null,
-    "header__main" => null,
-    "header__scroll_button" => false,
+            <div id="content_wrapper">
 
-    "content" => false,
-    "content__main" => null,
+            <?php 
+                if(isset($content["nav"]) && $content["nav"]) include("modules/nav.php");
+                if(isset($content["header"]) && $content["header"]) include("modules/header.php");
 
-    "aside" => false,
-    "aside__main" => null,
-    "aside__break" => false,
+                if((isset($content["nav"]) && $content["nav"]) && (!$content["header"] || !isset($content["header"]))) {
+                    ?><div style="width: 100%; height: 96px; display: block;"></div><?php
+                }
+            
+                if((isset($content["content"]) && $content["content"]) || (isset($content["aside"]) && $content["aside"])): ?>
+                
+                    <div id="main_container">
+                        <div id="content" style="margin-top: -64px; position: absolute;"></div>
+                        <?php
 
-    "footer" => false,
-    "footer__main" => null,
-];
+                            if(isset($content["content"]) && $content["content"]) include("modules/content.php");
+                            if(isset($content["aside"]) && $content["aside"]) include("modules/aside.php");
 
-include_once("default_content.php");
+                        ?>
+                    </div>
 
-if(isset($content))
-    $content = array_replace($default_content, $content);
+                <?php endif;
 
-require_once("modules/base.php");
+            ?>
 
-?>
+            </div>
+
+            <?php if(isset($content["footer"]) && $content["footer"]) include("modules/footer.php"); ?>
+
+        </div>
+        
+    </body>
+
+</html>

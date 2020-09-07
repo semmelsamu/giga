@@ -3,11 +3,11 @@
     <div class="inner">
 
         <div class="left">
-            <?= $content["nav__left"]; ?>
+            <?php if(isset($content["nav__left"])) echo $content["nav__left"]; ?>
         </div>
 
         <div class="right">
-            <?= $content["nav__right"]; ?>
+            <?php if(isset($content["nav__right"])) echo $content["nav__right"]; ?>
         </div>
 
         <div class="button">
