@@ -31,26 +31,32 @@ In this variable, you specify the settings and config for the theme. You have th
 
 ### path
 - Type: `string`
+- Default: `giga/`
 - Relative path from the uri to where the giga document root is. Needed for correctly linking the css and js files.
 
 ### lang
 - Type: `string`
+- Default: `null`
 - HTML lang tag value.
 
 ### head
 - Type: `html`
+- Default: `null`
 - Additional content which belongs in the head.
 
 ### title
 - Type: `string`
+- Default: `null`
 - The title of the page.
 
 ### main_title
 - Type: `string`
+- Default: `null`
 - The title of the website.
 
 ### page_size
 - Type: `int`
+- Default: `0`
 - Specifies the width of the website:
     - `0`: Whole screen
     - `1`: Part of the screen but still with aside content
@@ -58,38 +64,47 @@ In this variable, you specify the settings and config for the theme. You have th
 
 ### animate
 - Type: `bool`
+- Default: `false`
 - Specifies if the nav and header content should fade in.
 
 ### nav
 - Type: `bool`
+- Default: `false`
 - Specifies if the nav should be displayed or not.
 
 ### nav__left
 - Type: `string`
+- Default: `null`
 - The content in the left corner of the nav.
 
 ### nav__right
 - Type: `string`
+- Default: `null`
 - The content in the right corner of the nav.
 
 ### nav__shallow
 - Type: `bool`
+- Default: `false`
 - Specifies if the height of the nav is 64px or 96px.
 
 ### nav__small
 - Type: `bool`
+- Default: `false`
 - Specifies if the nav widens when there is a header and the scroll position is on the top.
 
 ### nav__dark
 - Type: `bool`
+- Default: `false`
 - Specifies if the nav always is black.
 
 ### header
 - Type: `bool`
+- Default: `false`
 - Specifies if the header should be displayed or not.
 
 ### header__size
-- Type: `bool`
+- Type: `int`
+- Default: `0`
 - Specifies the height of the header:
     - 0: Whole screen
     - 1: Half the screen
@@ -97,42 +112,52 @@ In this variable, you specify the settings and config for the theme. You have th
 
 ### header__background
 - Type: `css`
+- Default: `url('../img/default.png')`
 - The `background-image` value of the header.
 
 ### header__main
 - Type: `html`
+- Default: `null`
 - The content of the header.
 
 ### header__scroll_button
 - Type: `bool`
+- Default: `false`
 - Specifies if the scroll-down-button on the bottom of the header should be displayed or not.
 
 ### content
 - Type: `bool`
+- Default: `false`
 - Specifies if the content should be displayed or not.
 
 ### content__main
 - Type: `html`
+- Default: `null`
 - The main content of the page.
 
 ### aside
 - Type: `bool`
+- Default: `false`
 - Specifies if the aside content should be displayed or not.
 
 ### aside__main
 - Type: `html`
+- Default: `null`
 - The aside content.
 
 ### aside__break
 - Type: `bool`
+- Default: `false`
 - Specifies if the aside content should stay next to the main content or not.
 
 ### footer
 - Type: `bool`
+- Default: `false`
 - Specifies if the footer should be displayed or not.
 
 ### footer__main
 - Type: `html`
+- Default: `null`
 - The content of the footer.
 
 ## Examples
@@ -170,7 +195,7 @@ The following example shows a possible implementation of the theme:
 
 ### Working with templates
 
-If you e.g. want to always have the same navigation and footer bar in every page, one possible solution would be to work with a default file which you always include, and then to overwrite the content in the respective page:
+If you e.g. want to always have the same navigation and footer bar in every page, templates will do the job. One possible solution would be to work with a default file which you always include, and then to overwrite the content in the respective page:
 
 default_content.php:
 ```php
@@ -193,7 +218,7 @@ site.php:
 ```php
 <?php
 
-    // including the default content:
+    // Including the default content:
     include("default_content.php");
 
     ob_start(); 
@@ -214,4 +239,4 @@ site.php:
 
 ### A bigger example
 
-A bigger example, which shows many more features of the theme can be found in the `src/semmelsamu/giga/examples` folder.
+As the theme provides more features than shown so far, other examples can be found in the `src/semmelsamu/giga/examples` folder.

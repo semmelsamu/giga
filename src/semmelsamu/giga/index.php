@@ -1,5 +1,10 @@
 <?php
 
+/*
+Giga Theme - Made by Samuel Kroiß
+GitHub: https://github.com/semmelsamu/giga
+*/
+
 $content[0] = true;
 
 $default_values = [
@@ -20,6 +25,7 @@ $default_values = [
     "head" => null,
     "header__background" => "url('../img/default.png')",
     "header__size" => 0,
+    "path" => "giga/",
 ];
 
 $content = array_replace($default_values, $content);
