@@ -19,6 +19,8 @@ $content = [
     "content" => true,
     "content__main" => "Hello World!",
 ]
+
+include("giga/index.php");
 ```
 
 ## The content variable
