@@ -17,6 +17,7 @@ $default_values = [
     "aside" => false,
     "aside__break" => false,
     "content" => false,
+    "content__show_heading" => false,
     "nav" => false,
     "footer" => false,
     "path" => "giga/",

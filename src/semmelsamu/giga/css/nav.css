@@ -12,11 +12,16 @@
 #main_nav {
     width: 100%;
     background-color: black;
-    padding: 16px 0;
+    padding-top: 16px;
+    padding-bottom: 16px;
     box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.3);
     position: fixed;
-    transition: all 200ms;
+    transition: background-color 200ms, padding-top 200ms, padding-bottom 200ms;
     z-index: 10;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    box-sizing: border-box;
 }
 
 html[animate] #main_nav {
@@ -25,31 +30,26 @@ html[animate] #main_nav {
     animation-iteration-count: 1;
 }
 
-#main_nav .inner {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 0;
-    margin: 0 auto;
+html[page-size="1"] #main_nav {
+    padding-left: calc((100% - 1200px) / 2);
+    padding-right: calc((100% - 1200px) / 2);
 }
 
-html[page-size="1"] #main_nav .inner {
-    max-width: 1200px;
+html[page-size="2"] #main_nav {
+    padding-left: calc((100% - 800px) / 2);
+    padding-right: calc((100% - 800px) / 2);
 }
 
-html[page-size="2"] #main_nav .inner {
-    max-width: 800px;
-}
-
-html[header][scroll-position="0"]:not([small-nav]) #main_nav .inner {
-    max-width: 100%;
+html[header][scroll-position="0"]:not([small-nav]) #main_nav {
+    padding-left: 0;
+    padding-right: 0;
 }
 
 html[scroll-position="0"][header]:not([dark-nav]) #main_nav {
     background: linear-gradient(180deg, rgba(0,0,0,0.5), rgba(0,0,0,0));
     box-shadow: none;
-    padding: 0;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 html[shallow-nav] #main_nav {
@@ -66,27 +66,24 @@ html[shallow-nav] #main_nav {
     font-family: 'Roboto', sans-serif;
 }
 
-#main_nav .inner > * {
-    padding: 0 32px;
-}
-
-#main_nav ul {
+#main_nav > ul, #main_nav .button {
     display: flex;
     justify-content: space-between;
     list-style: none;
+    padding: 0 32px;
 }
 
-#main_nav .left a {
+#main_nav > ul > li > a {
+    padding: 0 16px;
+    display: inline-block;
+}
+
+#main_nav > .left > li:first-child > a {
     margin-left: -16px;
 }
 
-#main_nav .right a {
+#main_nav > .right > li:last-child > a {
     margin-right: -16px;
-}
-
-#main_nav a {
-    display: block;
-    padding: 0 16px;
 }
 
 #main_nav a:hover {
@@ -104,6 +101,12 @@ html[shallow-nav] #main_nav {
     #main_nav .right ul {
         display: block;
         margin-left: -16px;
+    }
+
+    html[scroll-position="0"]:not([dark-nav]) #main_nav[opened] {
+        background: #000000;
+        padding-top: 16px;
+        padding-bottom: 16px;
     }
 
     #main_nav[opened] .right {

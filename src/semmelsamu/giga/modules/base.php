@@ -39,7 +39,7 @@
                 if($content["content"] || $content["aside"]): ?>
                 
                     <div id="main_container">
-                        <div id="content" style="margin-top: -64px; position: absolute;"></div>
+                        <div id="content" style="margin-top: -96px; position: absolute;"></div>
                         <?php
 
                             if($content["content"]) include("content.php");

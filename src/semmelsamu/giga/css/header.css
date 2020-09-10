@@ -118,3 +118,7 @@ html[animate] #main_header .scroll_button {
         display: none;
     }
 }
+
+#header_background {
+    background-color: #000000;
+}

@@ -135,6 +135,11 @@ In this variable, you specify the settings and config for the theme. You have th
 - Default: `null`
 - The main content of the page.
 
+### content__show_heading
+- Type: `bool`
+- Default: `false`
+- Specifies if the title of the page should be shown in the content heading.
+
 ### aside
 - Type: `bool`
 - Default: `false`
