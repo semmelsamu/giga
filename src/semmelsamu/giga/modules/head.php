@@ -13,6 +13,8 @@
 
 ?>
 
+<?php if($content["icon"]) echo '<link rel="shortcut icon" href="'.$content["icon"].'">'; ?>
+
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet"> 
 
 <link rel="stylesheet" href="<?= $content["path"] ?>css/main.css">

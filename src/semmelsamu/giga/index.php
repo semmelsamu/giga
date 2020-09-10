@@ -26,6 +26,7 @@ $default_values = [
     "header__background" => "url('../img/default.png')",
     "header__size" => 0,
     "path" => "giga/",
+    "icon" => false,
 ];
 
 $content = array_replace($default_values, $content);
