@@ -27,7 +27,7 @@ With this theme, it is also very simple to work with templates. Learn more [here
 
 ## The content variable
 
-In this variable, you specify the settings and config for the theme. You have the following options:
+In this variable, you specify the settings and config for the theme. The following parameters are available:
 
 ### show
 - Type: `bool`
