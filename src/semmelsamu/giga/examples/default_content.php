@@ -5,6 +5,7 @@
     $content["page_size"] = 1;
 
     $content["content"] = true;
+    $content["show"] = true;
 
     $content["nav"] = true;
     $content["nav__left"] = '<a href="index.php">'.$content["main_title"].'</a>';
@@ -13,9 +14,7 @@
 
 ?>
 
-<ul>
-    <li><a href="small-site.php">Small site</a></li>
-</ul>
+<li><a href="small-site.php">Small site</a></li>
 
 <?php
 

@@ -29,6 +29,11 @@ With this theme, it is also very simple to work with templates. Learn more [here
 
 In this variable, you specify the settings and config for the theme. You have the following options:
 
+### show
+- Type: `bool`
+- Default: `false`
+- Specifies is the theme should be shown or not.
+
 ### path
 - Type: `string`
 - Default: `giga/`
@@ -184,6 +189,8 @@ The following example shows a possible implementation of the theme:
 
 <?php 
 
+    // The theme should be displayed:
+    $content["show"] = true;
     // Writing the buffer to the content:
     $content["content__main"] = ob_get_clean();
     // We want to show the content:
@@ -207,6 +214,7 @@ default_content.php:
 <?php
 
     $content["path"] = "giga/"; 
+    $content["show"] = true;
 
     $content["nav"] = true;
     $content["nav__left"] = "<p>Website Title</p>";

@@ -8,6 +8,7 @@ GitHub: https://github.com/semmelsamu/giga
 $content[0] = true;
 
 $default_values = [
+    "show" => false,
     "page_size" => 0,
     "animate" => false,
     "nav__shallow" => false,

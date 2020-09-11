@@ -1,3 +1,4 @@
+<?php if($content["show"]): ?>
 <!DOCTYPE html>
 
 <html <?php
@@ -61,3 +62,5 @@
     </body>
 
 </html>
+
+<?php endif; ?>

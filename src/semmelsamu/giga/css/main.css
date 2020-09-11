@@ -63,15 +63,3 @@ html[page-size="2"] #main_container {
 html[break-aside] #main_container {
     display: block;
 }
-
-#main_container .button {
-    background: #2354c9;
-    color: #ffffff;
-    padding: 8px 16px;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-#main_container .button:hover {
-    background: #153a95;
-}
