@@ -1,6 +1,6 @@
 <?php
 
-    $content["path"] = "../";
+    $content["path"] = "../src/semmelsamu/giga/";
     $content["main_title"] = "Giga Theme";
     $content["page_size"] = 1;
 

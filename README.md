@@ -252,4 +252,4 @@ site.php:
 
 ### A bigger example
 
-As the theme provides more features than shown so far, other examples can be found in the `src/semmelsamu/giga/examples` folder.
+As the theme provides more features than shown so far, other examples can be found in the `examples` folder.

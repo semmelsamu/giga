@@ -17,6 +17,6 @@
     $content["nav__small"] = true;
     $content["nav__shallow"] = true;
 
-    include("../index.php");
+    include("../src/semmelsamu/giga/index.php");
     
 ?>

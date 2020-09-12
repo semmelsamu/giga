@@ -22,6 +22,6 @@
     $content["header__background"] = "url('../examples/img/pexels-eberhard-grossgasteiger-1183021.jpg')";
     $content["header__scroll_button"] = true;
 
-    include("../index.php");
+    include("../src/semmelsamu/giga/index.php");
     
 ?>
