@@ -12,22 +12,19 @@ Copy the folder `src/semmelsamu/giga` to a static location on your webserver.
 
 ## Usage
 
-Specify your content and settings in the `$content` variable (See [The content variable](#the-content-variable)). Then, include the `index.php` file:
+Include the `index.php` file and create an instance of the `Giga` class.
 
 ```php
-$content = [
-    "content" => true,
-    "content__main" => "Hello World!",
-]
-
 include("giga/index.php");
+
+$giga = new Giga();
 ```
 
 With this theme, it is also very simple to work with templates. Learn more [here](#working-with-templates)
 
-## The content variable
+## Editing the content
 
-In this variable, you specify the settings and config for the theme. The following parameters are available:
+To set what the theme should display, use `$giga->your_setting = your_value`. Available settings are:
 
 ### show
 - Type: `bool`
@@ -120,7 +117,7 @@ In this variable, you specify the settings and config for the theme. The followi
 - Default: `url('../img/default.png')`
 - The `background-image` value of the header.
 
-### header__main
+### header__center
 - Type: `html`
 - Default: `null`
 - The content of the header.
@@ -131,14 +128,9 @@ In this variable, you specify the settings and config for the theme. The followi
 - Specifies if the scroll-down-button on the bottom of the header should be displayed or not.
 
 ### content
-- Type: `bool`
+- Type: `bool` or `html`
 - Default: `false`
-- Specifies if the content should be displayed or not.
-
-### content__main
-- Type: `html`
-- Default: `null`
-- The main content of the page.
+- If not false, the content will be displayed.
 
 ### content__show_heading
 - Type: `bool`
@@ -146,14 +138,9 @@ In this variable, you specify the settings and config for the theme. The followi
 - Specifies if the title of the page should be shown in the content heading.
 
 ### aside
-- Type: `bool`
+- Type: `bool` or `html`
 - Default: `false`
-- Specifies if the aside content should be displayed or not.
-
-### aside__main
-- Type: `html`
-- Default: `null`
-- The aside content.
+- If not false, the aside content will be displayed.
 
 ### aside__break
 - Type: `bool`
@@ -161,14 +148,9 @@ In this variable, you specify the settings and config for the theme. The followi
 - Specifies if the aside content should stay next to the main content or not.
 
 ### footer
-- Type: `bool`
+- Type: `bool` or `html`
 - Default: `false`
-- Specifies if the footer should be displayed or not.
-
-### footer__main
-- Type: `html`
-- Default: `null`
-- The content of the footer.
+- If not false, the footer content will be displayed.
 
 ## Examples
 
@@ -178,6 +160,10 @@ The following example shows a possible implementation of the theme:
 
 ```php
 <?php
+
+    include("../src/semmelsamu/giga/index.php");
+
+    $theme = new Giga();
 
     // Using output buffering to get the HTML code:
     ob_start(); 
@@ -190,17 +176,12 @@ The following example shows a possible implementation of the theme:
 <?php 
 
     // The theme should be displayed:
-    $content["show"] = true;
+    $theme->show = true;
     // Writing the buffer to the content:
-    $content["content__main"] = ob_get_clean();
-    // We want to show the content:
-    $content["content"] = true;
-    // In my case, the theme lies in the giga folder,
-    // so we specify it here:
-    $content["path"] = "giga/"; 
+    $theme->content = ob_get_clean();
 
-    // Including the theme:
-    include("giga/index.php");
+    // Rendering the theme:
+    $theme->render();
     
 ?>
 ```
@@ -213,16 +194,10 @@ default_content.php:
 ```php
 <?php
 
-    $content["path"] = "giga/"; 
-    $content["show"] = true;
-
-    $content["nav"] = true;
-    $content["nav__left"] = "<p>Website Title</p>";
-
-    $content["content"] = true;
-
-    $content["footer"] = true;
-    $content["footer__main"] = "<p>Copyright MMXX...</p>";
+    $theme->show = true;
+    $theme->main_title = "Giga Theme";
+    $theme->nav__left = "<li>Website Title</li>";
+    $theme->footer = "<p>Copyright MMXX...</p>";
 
 ?>
 ```
@@ -231,7 +206,10 @@ site.php:
 ```php
 <?php
 
-    // Including the default content:
+    include("../src/semmelsamu/giga/index.php");
+
+    $theme = new Giga();
+
     include("default_content.php");
 
     ob_start(); 
@@ -243,9 +221,9 @@ site.php:
 
 <?php 
 
-    $content["content__main"] = ob_get_clean();
+    $theme->content = ob_get_clean();
 
-    include("giga/index.php");
+    $theme->render();
     
 ?>
 ```

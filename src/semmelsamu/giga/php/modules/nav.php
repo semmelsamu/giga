@@ -1,13 +1,13 @@
 <nav id="main_nav">
 
     <ul class="left">
-        <?php if(isset($content["nav__left"])) echo $content["nav__left"]; ?>
+        <?php if(isset($this->nav__left)) echo $this->nav__left; ?>
     </ul>
 
-    <?php if(isset($content["nav__right"])): ?>
+    <?php if(isset($this->nav__right)): ?>
 
         <ul class="right">
-            <?= $content["nav__right"]; ?>
+            <?= $this->nav__right; ?>
         </ul>
 
         <div class="button">

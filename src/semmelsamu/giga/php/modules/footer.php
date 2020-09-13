@@ -1,5 +1,5 @@
 <footer id="main_footer">
     <div class="inner">
-        <?= $content["footer__main"] ?>
+        <?= $this->footer ?>
     </div>
 </footer>
